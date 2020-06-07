@@ -2,19 +2,28 @@ header {
 	text-align: center;
 	background-color: #fff7b7;
 	color: #160d41;
-}
-
-h3[class='site.title'] {
-	font-size: 18px;
-}
-
-p[class='site.description'] {
-	font-size: 12px;
-	font-style: italic;
+	width: 400px;
 }
 
 body {
-	background-color: fff290;
+	background-color: #fff290;
 	padding: 30px;
 	border: 30px solid #160d41;
+}
+
+h3[class='site.title'] {
+	font-size: 22px;
+}
+
+p[class='site.description'] {
+	font-size: 14px;
+	font-style: italic;
+}
+
+p[class='larger'] {
+	font-size: 17px;
+}
+
+p {
+	font-size: 12px;
 }
