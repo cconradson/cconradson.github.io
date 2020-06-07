@@ -5,7 +5,10 @@ header {
 }
 
 body {
-	border-width: 15px
+	border-color: #160d41;
+	border-width: 15px;
+	border-style: solid;
+	padding: 0px;
 }
 
 div {
