@@ -1,13 +1,12 @@
-header {
+div[id="header"] {
 	text-align: center;
 	background-color: #fff7b7;
 	color: #160d41;
 }
 
-div[class="container"] {
+div[id="container"] {
 	padding: 0px;
 	border: 15 px solid green;
-	margin: 20 px;
 }
 
 div {
