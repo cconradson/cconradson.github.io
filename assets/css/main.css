@@ -4,7 +4,7 @@ div[id="header"] {
 }
 
 div[id="wrap"] {
-	border: 15px solid #160d41;
+	border: 30px solid #160d41;
 	background-color: #fff7b7;
 }
 
@@ -13,7 +13,7 @@ div[class="body"] {
 	padding: 30px;
 	border-color: #160d41;
 	border-style: solid;
-	border-width: 0px 30px 30px 30px;
+	border-width: 0px 15px 30px 15px;
 }
 
 h3[class="site.title"] {
