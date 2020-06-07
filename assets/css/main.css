@@ -1,0 +1,20 @@
+header {
+	text-align: center;
+	background-color: #fff7b7;
+	color: #160d41;
+}
+
+h3[class='site.title'] {
+	font-size: 18px;
+}
+
+p[class='site.description'] {
+	font-size: 12px;
+	font-style: italic;
+}
+
+body {
+	background-color: fff290;
+	padding: 30px;
+	border: 30px solid #160d41;
+}
