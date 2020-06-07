@@ -5,6 +5,10 @@ header {
 	border-width: 0px;
 }
 
+body {
+	border-width: 15px
+}
+
 div {
 	background-color: #fff290;
 	padding: 30px;
