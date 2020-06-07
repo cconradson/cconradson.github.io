@@ -9,7 +9,7 @@ div[id="container"] {
 	border: 15 px solid green;
 }
 
-div {
+div[class="body"] {
 	background-color: #fff290;
 	padding: 30px;
 	border-color: #160d41;
