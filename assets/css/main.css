@@ -2,13 +2,18 @@ header {
 	text-align: center;
 	background-color: #fff7b7;
 	color: #160d41;
-	width: 400px;
+}
+
+body {
+	border: 15px solid #160d41;
 }
 
 div {
 	background-color: #fff290;
 	padding: 30px;
-	border: 30px solid #160d41;
+	border-color: #160d41;
+	border-style: solid;
+	border-width: 0px 30px 30px 30px;
 }
 
 h3[class='site.title'] {
