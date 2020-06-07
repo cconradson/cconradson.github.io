@@ -4,17 +4,17 @@ header {
 	color: #160d41;
 }
 
-div[class='container'] {
-	padding: 0px;
-	border: 15 px solid #160d41;
-}
-
-div {
+div[class='default'] {
 	background-color: #fff290;
 	padding: 30px;
 	border-color: #160d41;
 	border-style: solid;
 	border-width: 0px 30px 30px 30px;
+}
+
+div[class='container'] {
+	padding: 0px;
+	border: 15 px solid #160d41;
 }
 
 h3[class='site.title'] {
