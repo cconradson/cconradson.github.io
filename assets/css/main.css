@@ -1,11 +1,11 @@
 div[id="header"] {
 	text-align: center;
-	background-color: #fff7b7;
 	color: #160d41;
 }
 
 div[id="wrap"] {
-	border: 15px solid green;
+	border: 15px solid #160d41;
+	background-color: #fff7b7;
 }
 
 div[class="body"] {
