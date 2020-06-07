@@ -2,14 +2,9 @@ header {
 	text-align: center;
 	background-color: #fff7b7;
 	color: #160d41;
-	margin: 0px;
-}
-
-body {
 	border-color: #160d41;
-	border-width: 15px;
+	border-width: 15px 15px 0px 15px;
 	border-style: solid;
-	padding: 0px;
 }
 
 div {
