@@ -4,6 +4,10 @@ header {
 	color: #160d41;
 }
 
+body {
+	border-width: 15px
+}
+
 div {
 	background-color: #fff290;
 	padding: 30px;
