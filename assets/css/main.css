@@ -5,11 +5,12 @@ div[id="header"] {
 
 div[id="wrap"] {
 	border: 30px solid #160d41;
-	background-color: #fff7b7;
+	background-color: #fff290;
+	margin: 0;
 }
 
 div[class="body"] {
-	background-color: #fff290;
+	background-color: #fff7b7;
 	padding: 30px;
 	border-color: #160d41;
 	border-style: solid;
@@ -23,10 +24,6 @@ h3[class="site.title"] {
 p[class="site.description"] {
 	font-size: 14px;
 	font-style: italic;
-}
-
-p[class="larger"] {
-	font-size: 17px;
 }
 
 p {
