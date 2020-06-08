@@ -1,11 +1,13 @@
 .2col {
 	float: left;
 	width: 50%;
+	padding: 30px;
 }
 
 .3col {
 	float: left;
 	width: 33.33%;
+	padding: 30px;
 }
 
 .row:after {
