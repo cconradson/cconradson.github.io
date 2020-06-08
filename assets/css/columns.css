@@ -1,13 +1,11 @@
-.col2 {
+.2col {
 	float: left;
 	width: 50%;
-	padding: 20px;
 }
 
-.col3 {
+.3col {
 	float: left;
 	width: 33.33%;
-	padding: 20px;
 }
 
 .row:after {
