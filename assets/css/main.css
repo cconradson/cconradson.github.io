@@ -62,6 +62,11 @@ div[id="wrap"] {
 
 /* for image links with text on top */
 
+.bgimg {
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
 .bgimg > a {
 	opacity: 0.7;
 	background-color: #fff7b7;
