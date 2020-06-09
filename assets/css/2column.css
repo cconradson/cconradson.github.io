@@ -8,6 +8,11 @@
 	margin: 0;
 }
 
+.cbody {
+	margin: 0;
+	padding: 30px;
+}
+
 .row:after {
 	content: "";
 	display: table;
