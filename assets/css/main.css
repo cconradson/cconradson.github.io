@@ -33,6 +33,12 @@ div[id="wrap"] {
 	text-decoration: none;
 }
 
+.nav:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
 h3[class="site.title"] {
 	font-size: 30px;
 }
