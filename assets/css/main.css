@@ -1,15 +1,18 @@
+div {
+	color: #160d41;
+}
+
 div[id="header"] {
 	text-align: center;
 	border-color: #160d41;
 	border-width: 15px 15px 0px 15px;
 	border-style: solid;
-	color: #160d41;
 	padding: 15px;
 }
 
 div[id="wrap"] {
 	border: 30px solid #160d41;
-	background-color: #fff290;
+	background-color: #bdaa4a;
 	margin: 0;
 }
 
@@ -32,14 +35,14 @@ div[id="wrap"] {
 	float: left;
 	text-align: center;
 	width: 25%;
-	color: #ffffff;
+	color: #fff7b7;
 	font-size: 20px;
 	text-decoration: none;
 }
 
 .nav a:hover {
 	font-weight: bold;
-	color: #fff7b7;
+	color: #bdaa4a;
 }
 
 .nav:after {
