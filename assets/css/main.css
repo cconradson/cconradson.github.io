@@ -76,6 +76,10 @@ div[id="wrap"] {
 	background-color: rgb(255,255,255,0.7);
 	width: 100%;
 	height: 100%;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	
 }
 
 .bgimg > div.opacbox:hover {
