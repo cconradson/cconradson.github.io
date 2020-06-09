@@ -1,3 +1,5 @@
+/* General formatting for user site */
+
 div {
 	color: #160d41;
 }
@@ -57,6 +59,21 @@ div[id="wrap"] {
 	display: table;
 	clear: both;
 }
+
+/* for image links with text on top */
+
+.bgimg > a {
+	opacity: 0.7;
+	background-color: #fff7b7;
+	width: 100%;
+	min-height: 300px
+}
+
+.bgimg > a:hover {
+	opacity: 0.3;
+}
+
+/* font */
 
 h3[class="site.title"] {
 	font-size: 32px;
