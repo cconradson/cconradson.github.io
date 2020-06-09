@@ -1,0 +1,27 @@
+.row {
+	padding: 0;
+}
+
+.col {
+	float: left;
+	width: 50%;        /*Set to 100/(number of column) round down to 100th*/
+	margin: 0;
+}
+
+.cbody {
+	margin: 0;
+	padding: 15px;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* For mobile stack */
+@media screen and (max-width: 600px) {
+	.column {
+		width: 100%;
+	}
+}

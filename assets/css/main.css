@@ -40,6 +40,13 @@ div[id="wrap"] {
 	text-decoration: none;
 }
 
+/* For mobile make rows of 2 */
+@media screen and (max-width: 600px) {
+	.nav a {
+		width: 50%;
+	}
+}
+
 .nav a:hover {
 	font-weight: bold;
 	color: #bdaa4a;
