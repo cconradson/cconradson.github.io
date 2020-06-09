@@ -33,6 +33,11 @@ div[id="wrap"] {
 	text-decoration: none;
 }
 
+.nav a:hover {
+	font-weight: bold;
+	color: #fff7b7;
+}
+
 .nav:after {
 	content: "";
 	display: table;
