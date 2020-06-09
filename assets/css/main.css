@@ -1,5 +1,8 @@
 div[id="header"] {
 	text-align: center;
+	border-color: green;
+	border-width: 15px 15px 0px 15px;
+	border-style: solid;
 	color: #160d41;
 }
 
