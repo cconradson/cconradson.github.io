@@ -22,7 +22,7 @@
 }
 
 /* For mobile stack */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1025px) {
 	.col {
 		width: 100%;
 	}
