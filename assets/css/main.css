@@ -88,6 +88,7 @@ a.img {
 
 .bgimg > div.opacbox:hover {
 	background-color: rgb(255,247,183,0.45);
+	font-weight: bold;
 }
 
 .opacbox > p {
