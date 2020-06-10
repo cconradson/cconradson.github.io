@@ -15,12 +15,14 @@ div[id="header"] {
 	border-width: 15px 15px 0px 15px;
 	border-style: solid;
 	padding: 15px;
+	outline: 0;
 }
 
 div[id="wrap"] {
 	border: 30px solid #160d41;
 	background-color: #bdaa4a;
 	margin: 0;
+	outline: 0;
 }
 
 .body {
@@ -30,6 +32,7 @@ div[id="wrap"] {
 	border-style: solid;
 	border-width: 0px 30px 30px 30px;
 	margin: 0;
+	outline: 0;
 }
 
 .nav {
