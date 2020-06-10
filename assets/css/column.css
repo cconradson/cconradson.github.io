@@ -22,8 +22,8 @@
 }
 
 /* For mobile stack */
-@media screen and (max-width: 600px) {
-	.column {
+@media screen and (max-width: 800px) {
+	.col {
 		width: 100%;
 	}
 }
