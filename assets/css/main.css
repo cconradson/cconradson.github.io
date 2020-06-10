@@ -81,9 +81,9 @@ a.img {
 	text-decoration: none;
 	background-color: rgb(255,247,183,0.8);
 	width: 100%;
-	height: 100%;
+	height: 300px%;
 	position: relative;
-	top: -323px;
+	top: -324px;
 }
 
 .bgimg > div.opacbox:hover {
