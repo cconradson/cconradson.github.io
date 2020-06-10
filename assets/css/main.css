@@ -1,5 +1,10 @@
 /* General formatting for user site */
 
+body {
+	margin: 0;
+	border: 0;
+}
+
 div {
 	color: #160d41;
 }

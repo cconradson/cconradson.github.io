@@ -8,13 +8,15 @@
 	<link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/column.css">
 	</head>
 	
-	<div id="wrap">
-	
-		{% include top.html %}
+	<body>
+		<div id="wrap">
 		
-		{% include nav.html %}
+			{% include top.html %}
+			
+			{% include nav.html %}
+			
+			{{ content }}
 		
-		{{ content }}
-	
-	</div>
+		</div>
+	</body>
 </html>
