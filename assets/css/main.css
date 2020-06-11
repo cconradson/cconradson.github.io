@@ -9,20 +9,19 @@ div {
 	color: #160d41;
 }
 
+div[id="wrap"] {
+	border: 30px solid #160d41;
+	background-color: #160d41;
+	margin: 0;
+}
+
 div[id="header"] {
 	text-align: center;
 	border-color: #160d41;
 	border-width: 15px 15px 0px 15px;
 	border-style: solid;
 	padding: 15px;
-	outline: 0;
-}
-
-div[id="wrap"] {
-	border: 30px solid #160d41;
-	background-color: #bdaa4a;
-	margin: 0;
-	outline: 0;
+	background-color: #bdaa4a
 }
 
 .body {
@@ -113,9 +112,8 @@ h3[class="site.title"] {
 	font-size: 32px;
 }
 
-p[class="site.description"] {
-	font-size: 16px;
-	font-style: italic;
+p[class="page.title"] {
+	font-size: 18px;
 }
 
 p {
