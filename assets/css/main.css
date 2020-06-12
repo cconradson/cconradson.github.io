@@ -44,8 +44,8 @@ iframe {
 /* text */
 
 img.inline {
-	height: 18px;
-	width: 18px;
+	height: 20px;
+	width: 20px;
 }
 
 h3[class="site.title"] {
@@ -71,12 +71,18 @@ ul.blank {
 	list-style-type: none;
 }
 
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
 td {
 	vertical-align: top;
+	padding: 6px;
 }
 
 tr:nth-child(even) {
-	background-color: #fff8d2;
+	background-color: #fffae0;
 }
 
 /* navbar */
