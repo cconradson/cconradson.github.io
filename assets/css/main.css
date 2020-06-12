@@ -34,6 +34,12 @@ div[id="header"] {
 	outline: 0;
 }
 
+iframe {
+	width: 100%;
+	height: 800px;
+}
+
+/* navbar */
 .nav {
 	background-color: #284f8f;
 	padding: 10px;
