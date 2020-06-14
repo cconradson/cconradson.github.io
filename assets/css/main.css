@@ -96,6 +96,10 @@ iframe.video {
 		width: 100%;
 	}
 	
+	img.toright {
+		width: 33.33%;
+	}
+	
 	iframe.video {
 		width:100%;
 	}
