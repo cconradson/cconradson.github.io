@@ -9,6 +9,7 @@ body {
 
 div {
 	color: #160d41;
+	-webkit-text-size-adjust: none;
 }
 
 div[id="wrap"] {
