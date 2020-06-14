@@ -9,7 +9,6 @@ body {
 
 div {
 	color: #160d41;
-	-webkit-text-size-adjust: none;
 }
 
 div[id="wrap"] {
@@ -26,6 +25,7 @@ div[id="wrap"] {
 	border-width: 0px 30px 30px 30px;
 	margin: 0;
 	outline: 0;
+	max-height: 999999px
 }
 
 p {
