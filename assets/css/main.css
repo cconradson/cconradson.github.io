@@ -53,6 +53,11 @@ img.portrait {
 img.landscape {
 	width: 800px;
 }
+
+img.toright {
+	width: 25%;
+	float: right;
+}
 	
 iframe.map {
 	width: 100%;
