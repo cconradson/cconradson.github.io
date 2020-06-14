@@ -58,6 +58,12 @@ img.toright {
 	width: 25%;
 	float: right;
 }
+
+.imgfloat:after {
+	content: "";
+	clear: both;
+	display: table;
+}
 	
 iframe.map {
 	width: 100%;
