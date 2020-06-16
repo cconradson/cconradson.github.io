@@ -11,7 +11,7 @@ div {
 	color: #160d41;
 }
 
-div[id="wrap"] {
+#wrap {
 	border: 30px solid #160d41;
 	background-color: #160d41;
 	margin: 0;
@@ -25,7 +25,8 @@ div[id="wrap"] {
 	border-width: 0px 30px 30px 30px;
 	margin: 0;
 	outline: 0;
-	max-height: 999999px
+	max-width: 1400px;
+	max-height: 999999px;
 }
 
 p, li, th, td {
@@ -46,7 +47,7 @@ img.inline {
 }
 
 img.portrait {
-	width: 400px;
+	width: 500px;
 }
 	
 img.landscape {
@@ -88,7 +89,7 @@ iframe.video {
 
 @media screen and (max-width: 1025px) {
 	img.portrait {
-		width: 100%;
+		width: 80%;
 	}
 	
 	img.landscape {
@@ -106,7 +107,7 @@ iframe.video {
 
 /* header */
 
-div[id="header"] {
+#header {
 	text-align: center;
 	border-color: #160d41;
 	border-width: 15px 15px 0px 15px;
@@ -115,11 +116,11 @@ div[id="header"] {
 	background-color: #bdaa4a
 }
 
-h3[class="site.title"] {
+h3.site-title {
 	font-size: 32px;
 }
 
-p[class="page.title"] {
+p.page-title {
 	font-size: 24px;
 }
 
