@@ -223,6 +223,10 @@ a.img {
 	padding: 10px;
 }
 
+.droptitle {
+	padding: 15px;
+}
+
 .droptop:after {
 	content: "";
 	display: table;
@@ -232,18 +236,20 @@ a.img {
 button.drop {
 	background-color: #284f8f;
 	color: #fff7b7;
-	width: 40px;
-	height: 40px;
+	width: 60px;
+	height: 60px;
 	border: 0;
 	float: left;
+	font-weight: bold;
+	font-size: 30 px;
 }
 
 button.drop:hover {
 	color: #bdaa4a;
 }
 
-.droptop p {
-	float: left;
+.droptitle p {
+	font-size: 24 px;
 }
 
 .dropdown {
