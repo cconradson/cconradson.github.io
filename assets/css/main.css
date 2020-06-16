@@ -220,10 +220,12 @@ a.img {
 
 .droptop {
 	background-color:#bdaa4a;
+	padding: 0;
 }
 
 .droptitle {
 	float: left;
+	padding: 30px;
 }
 
 .droptop:after {
@@ -240,6 +242,7 @@ button.drop {
 	border: 0;
 	float: left;
 	margin: 15px;
+	padding: 10px;
 }
 
 button.drop p {
