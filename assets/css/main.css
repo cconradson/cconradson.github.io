@@ -225,7 +225,7 @@ a.img {
 
 .droptitle {
 	float: left;
-	padding: 5px;
+	padding: 0;
 }
 
 .droptop:after {
@@ -237,8 +237,8 @@ a.img {
 button.drop {
 	background-color: #284f8f;
 	color: #fff7b7;
-	width: 40px;
-	height: 40px;
+	width: 50px;
+	height: 50px;
 	border: 0;
 	float: left;
 	margin: 15px;
@@ -247,7 +247,7 @@ button.drop {
 
 button.drop p {
 	font-weight: bold;
-	font-size: 40 px;
+	font-size: 70 px;
 	padding: 0;
 }
 
