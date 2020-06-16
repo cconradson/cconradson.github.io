@@ -240,6 +240,9 @@ button.drop {
 	height: 60px;
 	border: 0;
 	float: left;
+}
+
+button.drop p {
 	font-weight: bold;
 	font-size: 30 px;
 }
