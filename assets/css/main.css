@@ -114,7 +114,7 @@ iframe.video {
 	border-style: solid;
 	padding: 15px;
 	background-color: #bdaa4a;
-	max-width: 1500px;
+	max-width: 1530px;            /* 1500 body + 15 padding difference + 15 desired */
 	margin: auto;
 }
 
@@ -131,7 +131,7 @@ p.page-title {
 	background-color: #284f8f;
 	padding: 10px;
 	margin: auto;
-	max-width: 1500px;
+	max-width: 1550px;             /* 1500 body + 20 padding difference + 30 desired */
 }
 
 .nav a {
