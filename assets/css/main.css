@@ -224,6 +224,7 @@ a.img {
 
 .droptitle {
 	float: left;
+	padding: 5px;
 }
 
 .droptop:after {
@@ -244,8 +245,10 @@ button.drop {
 
 button.drop > p {
 	font-weight: bold;
-	font-size: 80px;
+	font-size: 50px;
 	text-align: center;
+	position: relative;
+	top: -100px;	
 }
 
 button.drop:hover {
