@@ -8,13 +8,12 @@ var educlicks = 0;
 function eduDrop() {
 educlicks++;
 if (educlicks % 2) {
-document.getElementById("drop-edu").innerHTML = "v";
-document.getElementById("drop-edu").style.top = "-47px";
+document.getElementById("drop-edu").transform = "rotate(90deg)";
+document.getElementById("drop-edu").style.top = "-44px";
 document.getElementById("edu").style.display = "block";
 }
 else {
-document.getElementById("drop-edu").innerHTML = ">";
-document.getElementById("drop-edu").style.top = "-47px";
+document.getElementById("drop-edu").style.top = "-44px";
 document.getElementById("edu").style.display = "none";
 }
 }
