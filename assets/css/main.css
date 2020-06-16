@@ -245,7 +245,7 @@ button.drop {
 	padding: 0;
 }
 
-button.drop p {
+button.drop > p {
 	font-weight: bold;
 	font-size: 80 px;
 	padding: 0;
@@ -255,7 +255,7 @@ button.drop:hover {
 	color: #bdaa4a;
 }
 
-.droptitle p {
+.droptitle > p {
 	font-size: 30 px;
 	padding: 0;
 }
