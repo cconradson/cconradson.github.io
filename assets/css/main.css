@@ -248,7 +248,7 @@ button.drop > p {
 	font-size: 50px;
 	text-align: center;
 	position: relative;
-	top: -100px;	
+	top: -50px;	
 }
 
 button.drop:hover {
