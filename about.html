@@ -9,11 +9,12 @@ function eduDrop() {
 educlicks++;
 if (educlicks % 2) {
 document.getElementById("drop-edu").style.transform = "rotate(90deg)";
-document.getElementById("drop-edu").style.top = "-34px";
+document.getElementById("drop-edu").style.top = "-38px";
 document.getElementById("edu").style.display = "block";
 }
 else {
-document.getElementById("drop-edu").style.top = "-34px";
+document.getElementById("drop-edu").style.transform = "rotate(0deg)";
+document.getElementById("drop-edu").style.top = "-38px";
 document.getElementById("edu").style.display = "none";
 }
 }
