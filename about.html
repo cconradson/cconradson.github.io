@@ -18,9 +18,40 @@ document.getElementById("drop-edu").style.top = "-38px";
 document.getElementById("edu").style.display = "none";
 }
 }
+
+var proclicks = 0;
+function proDrop() {
+proclicks++;
+if (educlicks % 2) {
+document.getElementById("drop-pro").style.transform = "rotate(90deg)";
+document.getElementById("drop-pro").style.top = "-38px";
+document.getElementById("pro").style.display = "block";
+}
+else {
+document.getElementById("drop-pro").style.transform = "rotate(0deg)";
+document.getElementById("drop-pro").style.top = "-38px";
+document.getElementById("pro").style.display = "none";
+}
+}
+
+var skillclicks = 0;
+function skillDrop() {
+skillclicks++;
+if (educlicks % 2) {
+document.getElementById("drop-skill").style.transform = "rotate(90deg)";
+document.getElementById("drop-skill").style.top = "-38px";
+document.getElementById("skill").style.display = "block";
+}
+else {
+document.getElementById("drop-skill").style.transform = "rotate(0deg)";
+document.getElementById("drop-skill").style.top = "-38px";
+document.getElementById("skill").style.display = "none";
+}
+}
 </script>
 
 <div class="body">
+	<p>Something about contact maybe</p>
 </div>
 
 <div class="body">
@@ -31,6 +62,30 @@ document.getElementById("edu").style.display = "none";
 		</div>
 	</div>
 	<div id="edu" class="dropdown">
+		<p>Some filler for now</p>
+	</div>
+</div>
+
+<div class="body">
+	<div class="droptop">
+		<button class="drop" onclick=proDrop()><p id="drop-pro">></p></button>
+		<div class="droptitle">
+			<p>Professional Experience</p>
+		</div>
+	</div>
+	<div id="pro" class="dropdown">
+		<p>Some filler for now</p>
+	</div>
+</div>
+
+<div class="body">
+	<div class="droptop">
+		<button class="drop" onclick=skillDrop()><p id="drop-skill">></p></button>
+		<div class="droptitle">
+			<p>Skills</p>
+		</div>
+	</div>
+	<div id="skill" class="dropdown">
 		<p>Some filler for now</p>
 	</div>
 </div>
