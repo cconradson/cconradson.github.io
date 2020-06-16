@@ -225,6 +225,7 @@ a.img {
 
 .droptitle {
 	padding: 15px;
+	float: left;
 }
 
 .droptop:after {
