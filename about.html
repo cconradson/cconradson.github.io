@@ -4,54 +4,57 @@ title: About
 ---
 
 <script>
-var educlicks = 0;
+var eduClosed = true;
 function eduDrop() {
-educlicks++;
-if (educlicks % 2) {
+if (eduClosed) {
 document.getElementById("drop-edu").style.transform = "rotate(90deg)";
 document.getElementById("drop-edu").style.top = "-38px";
 document.getElementById("edu").style.display = "block";
+eduClosed = false;
 }
 else {
 document.getElementById("drop-edu").style.transform = "rotate(0deg)";
 document.getElementById("drop-edu").style.top = "-38px";
 document.getElementById("edu").style.display = "none";
+eduClosed = true;
 }
 }
 
-var proclicks = 0;
+var proClosed = true;
 function proDrop() {
-proclicks++;
-if (proclicks % 2) {
+if (proClosed) {
 document.getElementById("drop-pro").style.transform = "rotate(90deg)";
 document.getElementById("drop-pro").style.top = "-38px";
 document.getElementById("pro").style.display = "block";
+proClosed = false;
 }
 else {
 document.getElementById("drop-pro").style.transform = "rotate(0deg)";
 document.getElementById("drop-pro").style.top = "-38px";
 document.getElementById("pro").style.display = "none";
+proClosed = true;
 }
 }
 
-var skillclicks = 0;
+var skillClosed = true;
 function skillDrop() {
-skillclicks++;
-if (skillclicks % 2) {
+if (skillClosed) {
 document.getElementById("drop-skill").style.transform = "rotate(90deg)";
 document.getElementById("drop-skill").style.top = "-38px";
 document.getElementById("skill").style.display = "block";
+skillClosed = false;
 }
 else {
 document.getElementById("drop-skill").style.transform = "rotate(0deg)";
 document.getElementById("drop-skill").style.top = "-38px";
 document.getElementById("skill").style.display = "none";
+skillClosed = true;
 }
 }
 </script>
 
 <div class="body">
-	<p>Something about contact maybe</p>
+	<p>Under Construction</p>
 </div>
 
 <div class="body">
