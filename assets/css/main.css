@@ -38,7 +38,6 @@ p, li, th, td {
 	}
 }
 
-
 /* images and embeds */
 
 img.inline {
@@ -47,7 +46,7 @@ img.inline {
 }
 
 img.portrait {
-	width: 600px;
+	width: 400px;
 }
 	
 img.landscape {
@@ -216,3 +215,5 @@ a.img {
 	top: 50%;
 	transform: translateY(-50%);
 }
+
+/* For drop-downs */

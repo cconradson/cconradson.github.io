@@ -1,0 +1,32 @@
+---
+layout: default
+title: About
+---
+
+<script>
+educlicks = 0;
+function eduDrop() {
+educlicks++;
+if (educlicks % 2) {
+document.getElementbyId("drop-edu").innerHTML = "V";
+document.getElementbyId("edu").style.display = "block";
+}
+else {
+document.getElementbyId("drop-edu").innerHTML = ">";
+document.getElementbyId("edu").style.display = "none";
+}
+}
+</script>
+
+<div class="body">
+</div>
+
+<div class="body">
+	<div class="droptop">
+		<button id="drop-edu" class="drop" onclick="eduDrop()">></button>
+		<h3>Education</h3>
+	</div>
+	<div id="edu" class="dropdown">
+		<p>Some filler for now</p>
+	</div>
+</div>
