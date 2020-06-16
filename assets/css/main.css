@@ -25,7 +25,7 @@ div {
 	border-width: 0px 30px 30px 30px;
 	margin: auto;
 	outline: 0;
-	max-width: 1400px;
+	max-width: 1500px;
 	max-height: 999999px;
 }
 
@@ -113,7 +113,9 @@ iframe.video {
 	border-width: 15px 15px 0px 15px;
 	border-style: solid;
 	padding: 15px;
-	background-color: #bdaa4a
+	background-color: #bdaa4a;
+	max-width: 1515px;
+	margin: auto;
 }
 
 h3.site-title {
@@ -128,7 +130,8 @@ p.page-title {
 .nav {
 	background-color: #284f8f;
 	padding: 10px;
-	margin: 0;
+	margin: auto;
+	max-width: 1530px;
 }
 
 .nav a {
