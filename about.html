@@ -22,7 +22,7 @@ document.getElementById("edu").style.display = "none";
 var proclicks = 0;
 function proDrop() {
 proclicks++;
-if (educlicks % 2) {
+if (proclicks % 2) {
 document.getElementById("drop-pro").style.transform = "rotate(90deg)";
 document.getElementById("drop-pro").style.top = "-38px";
 document.getElementById("pro").style.display = "block";
@@ -37,7 +37,7 @@ document.getElementById("pro").style.display = "none";
 var skillclicks = 0;
 function skillDrop() {
 skillclicks++;
-if (educlicks % 2) {
+if (skillclicks % 2) {
 document.getElementById("drop-skill").style.transform = "rotate(90deg)";
 document.getElementById("drop-skill").style.top = "-38px";
 document.getElementById("skill").style.display = "block";
