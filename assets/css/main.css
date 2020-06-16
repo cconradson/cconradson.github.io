@@ -217,3 +217,7 @@ a.img {
 }
 
 /* For drop-downs */
+
+.dropdown {
+	display: none;
+}
