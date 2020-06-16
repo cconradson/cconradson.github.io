@@ -225,7 +225,7 @@ a.img {
 
 .droptitle {
 	float: left;
-	padding: 30px;
+	padding: 15px;
 }
 
 .droptop:after {
@@ -242,12 +242,12 @@ button.drop {
 	border: 0;
 	float: left;
 	margin: 15px;
-	padding: 10px;
 }
 
 button.drop p {
 	font-weight: bold;
-	font-size: 30 px;
+	font-size: 40 px;
+	padding: 0;
 }
 
 button.drop:hover {
@@ -256,6 +256,7 @@ button.drop:hover {
 
 .droptitle p {
 	font-size: 24 px;
+	padding: 0;
 }
 
 .dropdown {
