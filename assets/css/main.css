@@ -39,11 +39,27 @@ p, li, th, td {
 	}
 }
 
+/* placement on opposite ends of same line */
+
+.line:after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+p.left {
+	float: left;
+}
+
+p.right {
+	float: right;
+}
+
 /* images and embeds */
 
 img.inline {
-	height: 16px;
-	width: 16px;
+	height: 20px;
+	width: 20px;
 }
 
 img.portrait {
@@ -89,8 +105,8 @@ iframe.video {
 
 @media screen and (max-width: 1025px) {
 	img.inline {
-		width: 20px;
-		height: 20px;
+		width: 24px;
+		height: 24px;
 	}
 	
 	img.portrait {
