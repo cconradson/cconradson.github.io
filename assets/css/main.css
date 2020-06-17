@@ -42,8 +42,8 @@ p, li, th, td {
 /* images and embeds */
 
 img.inline {
-	height: 20px;
-	width: 20px;
+	height: 16px;
+	width: 16px;
 }
 
 img.portrait {
@@ -88,6 +88,11 @@ iframe.video {
 }
 
 @media screen and (max-width: 1025px) {
+	img.inline {
+		width: 20px;
+		height: 20px;
+	}
+	
 	img.portrait {
 		width: 80%;
 	}
@@ -164,7 +169,7 @@ p.page-title {
 /* lists and tables */
 
 li {
-	padding: 10px;
+	padding: 5px;
 }
 
 ul.blank {
