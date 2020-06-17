@@ -163,6 +163,10 @@ p.page-title {
 
 /* lists and tables */
 
+ul {
+	padding: 5px;
+}
+
 ul.blank {
 	list-style-type: none;
 }
@@ -265,4 +269,5 @@ button.drop:hover {
 
 .dropdown {
 	display: none;
+	padding: 10px;
 }
