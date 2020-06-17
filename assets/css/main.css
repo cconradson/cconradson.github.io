@@ -25,7 +25,7 @@ div {
 	border-width: 0px 30px 30px 30px;
 	margin: auto;
 	outline: 0;
-	max-width: 1500px;
+	max-width: 1400px;
 	max-height: 999999px;
 }
 
@@ -40,6 +40,11 @@ p, li, th, td {
 }
 
 /* placement on opposite ends of same line */
+
+.line {
+	padding: 0;
+	margin: 0;
+}
 
 .line:after {
 	content: "";
@@ -135,7 +140,7 @@ iframe.video {
 	border-style: solid;
 	padding: 15px;
 	background-color: #bdaa4a;
-	max-width: 1560px;            /* 1500 body + 15*2 padding difference + 15*2 desired */
+	max-width: 1460px;            /* 1400 body + 15*2 padding difference + 15*2 desired */
 	margin: auto;
 }
 
@@ -152,7 +157,7 @@ p.page-title {
 	background-color: #284f8f;
 	padding: 10px;
 	margin: auto;
-	max-width: 1600px;             /* 1500 body + 20*2 padding difference + 30*2 desired */
+	max-width: 1500px;             /* 1400 body + 20*2 padding difference + 30*2 desired */
 }
 
 .nav a {
