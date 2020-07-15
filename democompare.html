@@ -12,6 +12,12 @@ title: Demos
 		<link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/main.css">
 		<link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/column.css">
 		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
+		<script>
+		//dynamically adjust viewport width if it is too small to properly display the embed
+		if (screen.width < 800) {
+		  document.getElementById('viewport').setAttribute('content', 'width=800')
+		}
+		</script>
 	</head>
 	
 	<body>
@@ -30,9 +36,9 @@ title: Demos
 			</div>
 			
 			<div class = "body">
-				<p>Here is a league standings embed that needs a horizontal scroll on mobile:</p>
+				<p>If you look at the page source here, you will see a script in the head section which ensures that the page is rendered wide enough to have the embed below not require horizontal scrolling, with the downside that the rest of the site layout changes with it.</p>
 				<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR7v5ukbNzGrZDDaV-BdT6nPL5Q9WnhH1Vn38-Lsgt36qW4kuiuf88_EelKcIS074Km_MGsvbUQWeqU/pubhtml?gid=1754661623&amp;headers=false" style="width:100%;height:281px"></iframe>
-				<p>However, for pages which need a larger width for proper embedding, you can adjust the viewport tag to set what amounts to a minimum display width in order to fit the embed: <a href="{{ site.url }}/democompare.html">See Here</a></p>
+				
 			</div>
 		
 		</div>
