@@ -1,43 +1,39 @@
 ---
-layout: default
 permalink: /:basename
 title: Demos
 ---
 
-<div class="body">
-	<p>This page is for experimenting. It's an orphan.</p>
-</div>
+<!doctype html>
 
-<div class="body" style="text-align:center">
-	<div>
-	<p>In front of:</p>
-		<h2 style="font-size:60px"><a href="http://dominionleague.org/" style="text-decoration:none"><img src="http://dominionleague.org/img/icons/vp_token.png" alt="vp" style="width:70px;height:70px;position:relative;top:13px"> Dominion League</a></h2>
-		<p>Faded in back of:</p>
-	</div>
-	<div>
-		<img src="http://dominionleague.org/img/icons/vp_token.png" alt="vp" style="opacity:0.5;height:100px;width:100px"> 
-		<h2 style="position:relative;top:-140px;font-size:60px"><a href="http://dominionleague.org/" style="text-decoration:none">Dominion League</a></h2>	
-	</div>
-</div>
-
-<div class="body">
-	<p style="text-align:center">And here are columns:<p>
+<html>
+	<head>
+		<title>Cade Conradson - {{ page.title }}</title>
+		<link rel="shortcut icon" type="image/jpg" href="{{ site.url }}/assets/images/snakeface.jpg">
+		<link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/main.css">
+		<link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/column.css">
+		<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
 	
-	<div class="row">	
-	
-		<div class="col">
-			<div class="cbody">
-				<p>Column 1 is a good column that really needs to be long enough to see if column 2 works and that's fine because column 2 is a pain to get to work but column 1 is right where it should be</p>
-			</div>
-		</div>
+	<body>
+		<div id="wrap">
 		
-		<div class="col">
-			<div class="cbody">
-				<p>Column 2 just has this picture of a snake</p>
-				<img src="assets/images/snake.jpg" alt="This is Bob" style="width:90%">
+			<div id="header">
+				<h3 class='site-title'>{{ site.title }}</h3>
+				<p class='page-title'>{{ page.title }}</p>
 			</div>
-		</div>
+			
+			<div class="nav">
+				<a href="{{ site.url }}">Home</a>
+				<a href="{{ site.url }}/projects/">Projects</a>
+				<a href="{{ site.url }}/interests/">For Fun</a>
+				<a href="{{ site.url }}/about/">About</a>
+			</div>
+			
+			<div class = "body">
+				<p>Here is a league standings embed that needs a horizontal scroll on mobile:</p>
+				<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR7v5ukbNzGrZDDaV-BdT6nPL5Q9WnhH1Vn38-Lsgt36qW4kuiuf88_EelKcIS074Km_MGsvbUQWeqU/pubhtml?gid=1754661623&amp;headers=false" height='281' width='768'></iframe>
+			</div>
 		
-	</div>
-	
-</div>
+		</div>
+	</body>
+</html>
