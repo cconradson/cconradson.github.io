@@ -34,7 +34,7 @@ title: Demos
 			<div class = "body">
 				<div id="visual">
 					<script type="text/javascript">
-					var df = {"values": {{ site.data.leaguecounts }}};
+					var df = {"values": {{ site.data.leaguecounts | jsonify }}};
 					
 					const spec = {
 					"height": 400,
