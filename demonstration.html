@@ -34,22 +34,23 @@ title: Demos
 			<div class = "body">
 				<div id="visual">
 					<script type="text/javascript">
-					var df = [
+					var df = {"values":[
 					{"name":"Mic Qsenoch", "wins":21},
 					{"name":"nasmith99", "wins":16},
 					{"name":"xyrix", "wins":16},
 					{"name":"E.Honda", "wins":14.5},
 					{"name":"JNails", "wins":11.5},
 					{"name":"wharf_rat", "wins":11}
-					];
+					]};
 					
 					const spec = {
-					'$schema': 'https://vega.github.io/schema/vega-lite/v4.json',
-					'data': df,
-					'mark': 'bar',
-					'encoding': {
-					'x': {'field': "name", 'type': "nominal"},
-					'y': {'field': "wins", 'type': "quantitative"}
+					"height": 400,
+					"width" : 500,
+					"data": df,
+					"mark": "bar",
+					"encoding": {
+					"x": {"field": "name", "type": "nominal"},
+					"y": {"field": "wins", "type": "quantitative"}
 					}				
 					};
 					vegaEmbed("#visual", spec);
