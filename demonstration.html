@@ -51,7 +51,11 @@ title: Demos
 							},
 							"y": {
 								"field": "lfrac",
-								"type": "quantitative"
+								"type": "quantitative",
+								"scale": {
+									"reverse": true,
+									"domain": [0,1]
+								}
 							},
 							"color": {
 								"field": "tier",
@@ -60,7 +64,8 @@ title: Demos
 									"domain": ["A","B","C","D","E","F","G","H","I","J"],
 									"range": colors
 								}
-							}
+							},
+							"order": {"field":"tierorder", "sort":"descending"}
 						}			
 					};
 					vegaEmbed("#visual", spec);
