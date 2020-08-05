@@ -40,8 +40,8 @@ title: Demos
 					var seasons = [];
 					var player = "tracer";
 					//isolate records for relevant player
+					console.log(history);
 					for (let i = 0; i < history.length; i++) {
-						console.log(i);
 						if (history[i].player == player) {
 							pHist.push(history[i]);
 							seasons.push(history[i].season);
