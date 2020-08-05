@@ -35,16 +35,15 @@ title: Demos
 				<div id="visual">
 					<script type="text/javascript">
 					var counts = {{ site.data.leaguecounts | jsonify }};
-					var history = {{ site.data.placeHistory | jsonify }};
+					var placeHistory = {{ site.data.placeHistory | jsonify }};
 					var pHist = [];
 					var seasons = [];
 					var player = "tracer";
 					//isolate records for relevant player
-					console.log(history);
-					for (let i = 0; i < history.length; i++) {
+					for (let i = 0; i < placeHistory.length; i++) {
 						if (history[i].player == player) {
-							pHist.push(history[i]);
-							seasons.push(history[i].season);
+							pHist.push(placeHistory[i]);
+							seasons.push(placeHistory[i].season);
 						}
 					}
 					//find missing seasons and insert nulls
