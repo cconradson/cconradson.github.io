@@ -48,7 +48,7 @@ title: Demos
 					}
 					//find missing seasons and insert nulls
 					var toadd = []
-					for (let s = seasons[1]; s < seasons[seasons.length-1]; i++) {
+					for (let s = seasons[1]; s < seasons[seasons.length-1]; s++) {
 						if (!(seasons.includes(s))) {
 							pHist.push({"player":player, "tier":null, "division":null, "place":null, "season":String(s), "countPlacement":null, "propPlacement":null, "champ":null});
 							toadd.push(s);
