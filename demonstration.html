@@ -64,6 +64,7 @@ title: Demos
 					//some stuff to cut it because of annoying layering features
 					colors = colors.concat(["#000000", "#000000", "#FFFF00"]);
 					const spec = {
+						"title": "League History:" + player,
 						"height": 400,
 						"width" : 500,
 						"layer": [
@@ -76,7 +77,8 @@ title: Demos
 										"type": "ordinal",
 										"scale": {
 											"domain": seasons
-										}
+										},
+										"axis": {"title": "Season"}
 									},
 									"y": {
 										"field": "lfrac",
@@ -84,7 +86,8 @@ title: Demos
 										"scale": {
 											"reverse": true,
 											"domain": [0,1]
-										}
+										},
+										"axis": {"title": "Position"}
 									},
 									"color": {
 										"field": "tier",
@@ -93,7 +96,13 @@ title: Demos
 											"domain": tiers,
 											"range": colors
 										},
-										"legend": {"title": "Tier", "values": tiers}
+										"legend": {
+											"title": "Tier",
+											"values": tiers,
+											"symbolType": "square",
+											"symbolStrokeWidth": 0,
+											"symbolSize": 200
+										}
 									},
 									"order": {"field":"tier", "sort":"ascending"}
 								}
@@ -108,7 +117,15 @@ title: Demos
 							},
 							{
 								"data": {"values": pHist},
-								"mark": {"type": "point", "filled": true, "stroke": "#000000", "strokeWidth": "1", "opacity": "1"},
+								"transform": [{"calculate": "'http://dominionleague.org/past_standings/season' + datum.season", "as": "standings"}],
+								"selection": {"point": {"type": "single", "on": "mouseover"}},
+								"mark": {
+									"type": "point",
+									"filled": true,
+									"opacity": "1",
+									"stroke": "#000000",
+									"strokeWidth": "1"
+								},
 								"encoding": {
 									"x": {"field": "season"},
 									"y": {"field": "propPlacement", "type": "quantitative"},
@@ -119,25 +136,26 @@ title: Demos
 											"domain": ["no", "division", "league"]
 										}
 									},
-									"size": {
-										"field": "champ",
-										"type": "nominal",
-										"scale": {
-											"domain": ["no", "division", "league"],
-											"range": ["50", "300", "100"]
-										},
-										"legend": null
-									},
 									"shape": {
 										"field": "champ",
 										"type": "nominal",
 										"scale": {
 											"domain": ["no", "division", "league"],
-											"range": ["circle", 
-											"M 0 -1 L -0.217962758401608 -0.3 L -0.951056516295154 -0.309016994374947 L -0.352671151375484 0.114589803375032 L -0.587785252292473 0.809016994374947 L -4.54109009700785e-17 0.370820393249937 L 0.587785252292473 0.809016994374948 L 0.352671151375484 0.114589803375032 L 0.951056516295154 -0.309016994374947 L 0.217962758401608 -0.3 L 2.44921270764475e-16 -1 L -0.217962758401608 -0.3",
-											"M 0 -1 L -0.217962758401608 -0.3 L -0.951056516295154 -0.309016994374947 L -0.352671151375484 0.114589803375032 L -0.587785252292473 0.809016994374947 L -4.54109009700785e-17 0.370820393249937 L 0.587785252292473 0.809016994374948 L 0.352671151375484 0.114589803375032 L 0.951056516295154 -0.309016994374947 L 0.217962758401608 -0.3 L 2.44921270764475e-16 -1 L -0.217962758401608 -0.3"],
-										}
-									}
+											"range": [
+												"M 0 -1 A 1 1 0 1 1 0 1 A 1 1 0 1 1 0 -1", 
+												"M 0 -2 L -0.36327126400268 -0.5 L -1.90211303259031 -0.618033988749895 L -0.587785252292473 0.190983005625053 L -1.17557050458495 1.61803398874989 L -7.56848349501309e-17 0.618033988749895 L 1.17557050458495 1.6180339887499 L 0.587785252292473 0.190983005625053 L 1.90211303259031 -0.618033988749894 L 0.363271264002681 -0.5 L 4.89842541528951e-16 -2 L -0.36327126400268 -0.5",
+												"M 0 -2.4 L -0.435925516803217 -0.6 L -2.28253563910837 -0.741640786499874 L -0.705342302750968 0.229179606750063 L -1.41068460550194 1.94164078649987 L -9.0821801940157e-17 0.741640786499874 L 1.41068460550194 1.94164078649987 L 0.705342302750968 0.229179606750063 L 2.28253563910837 -0.741640786499873 L 0.435925516803217 -0.6 L 5.87811049834741e-16 -2.4 L -0.435925516803216 -0.600000000000001"
+											]
+										},
+										"legend": null
+									},
+									"href": {"field": "standings", "type": "nominal"},
+									"size": {"condition": {"selection": "point", "value": "60"}, "value": "40"},
+									"tooltip": [
+										{"field": "season", "type": "nominal", "title": "Season"},
+										{"field": "division", "type": "nominal", "Division": "Season"},
+										{"field": "place", "type": "nominal", "title": "Finish"}
+									]
 								}
 							}
 						]
