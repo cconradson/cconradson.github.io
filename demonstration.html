@@ -118,7 +118,7 @@ title: Demos
 							{
 								"data": {"values": pHist},
 								"transform": [{"calculate": "'http://dominionleague.org/past_standings/season' + datum.season", "as": "standings"}],
-								"selection": {"point": {"type": "single", "on": "mouseover"}},
+								"selection": {"point": {"type": "single", "on": "mouseover", "empty": "none"}},
 								"mark": {
 									"type": "point",
 									"filled": true,
