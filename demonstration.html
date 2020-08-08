@@ -84,11 +84,11 @@ title: Demos
 						//filter counts to desired 
 						if (allTiers) {
 							for (let i = 1; i < counts.length; i++) {
-								if (seasons.includes(String(counts[i].season))) {fCounts.push(counts[i]);}
+								if (seasons.includes(counts[i].season)) {fCounts.push(counts[i]);}
 							}
 						} else {
 							for (let i = 1; i < counts.length; i++) {
-								if (seasons.includes(String(counts[i].season)) && tiers.includes(counts[i].tiers)) {fCounts.push(counts[i]);}
+								if (seasons.includes(counts[i].season) && tiers.includes(counts[i].tier)) {fCounts.push(counts[i]);}
 							}
 						}
 						
