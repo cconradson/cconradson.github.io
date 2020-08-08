@@ -41,18 +41,11 @@ title: Demos
 					var player = "tracer";
 					var seasonRange = [1,41];
 					
-					//for debug
-					var pHist = [];
-					var tiers = [];
-					var seasons = [];
-					var fCounts = [];
-					var toadd = [];
-					
 					function makePlot() {
-						//var pHist = [];
-						//var tiers = [];
-						//var seasons = [];
-						//var fCounts = [];
+						var pHist = [];
+						var tiers = [];
+						var seasons = [];
+						var fCounts = [];
 						
 						//data slicing
 						//isolate records for relevant player
@@ -65,7 +58,7 @@ title: Demos
 						}
 
 						//find missing seasons and insert nulls
-						//var toadd = [];
+						var toadd = [];
 						for (let s = seasons[0]; s < seasons[seasons.length-1]; s++) {
 							if (!(seasons.includes(String(s)))) {
 								pHist.push({"player":player, "tier":null, "division":null, "place":null, "season":String(s), "countPlacement":null, "propPlacement":null, "champ":null});
