@@ -82,7 +82,7 @@ title: Demos
 							let potTiers = ["A","B","C","D","E","F","G","H","I","J"];
 							let minTier = tiers.sort()[tiers.length - 1]
 							let tempTiers = [];
-							for (let i = 0, i < potTiers.length) {
+							for (let i = 0; i < potTiers.length; i++) {
 								if (potTiers[i] <= minTier) {tempTiers.push(potTiers[i]);} else {break;}
 							}
 							tiers = tempTiers;
