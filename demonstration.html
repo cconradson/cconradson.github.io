@@ -40,18 +40,12 @@ title: Demos
 					var allTiers = false;
 					var player = "tracer";
 					var seasonRange = [1,41];
-					
-					//debug
-					var pHist = [];
-					var tiers = [];
-					var seasons = [];
-					var fCounts = [];
 						
 					function makePlot() {
-						//var pHist = [];
-						//var tiers = [];
-						//var seasons = [];
-						//var fCounts = [];
+						var pHist = [];
+						var tiers = [];
+						var seasons = [];
+						var fCounts = [];
 						
 						//data slicing
 						//isolate records for relevant player
@@ -152,7 +146,7 @@ title: Demos
 									"transform": [{"calculate": "if(datum.season.length == 1, '0' + datum.season, datum.season)", "as": "order"}],
 									"mark": {"type": "line", "stroke": "#000000"},
 									"encoding" : {
-										"x": {"field": "season"},
+										"x": {"field": "season", "type": "ordinal"},
 										"y": {"field": "countPlacement", "type": "quantitative"},
 										"order": {"field": "order"}
 									}
@@ -169,7 +163,7 @@ title: Demos
 										"strokeWidth": "1"
 									},
 									"encoding": {
-										"x": {"field": "season"},
+										"x": {"field": "season", "type": "ordinal"},
 										"y": {"field": "countPlacement", "type": "quantitative"},
 										"color": {
 											"field": "champ",
