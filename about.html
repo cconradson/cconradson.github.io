@@ -5,7 +5,23 @@ title: About
 ---
 
 <script>
-var eduClosed = true;
+var edu = {"name": "edu", "closed": true}
+var pro = {"name": "pro", "closed": true}
+var skill = {"name": "skill", "closed": true}
+
+function dropDown(drop) {
+	if (drop.closed) {
+		document.getElementById("drop-" + drop.name).style.transform = "rotate(90deg)";
+		document.getElementById(drop.name).style.display = "block";
+		drop.closed = false;
+	} else {
+		document.getElementById("drop-" + drop.name).style.transform = "rotate(0deg)";
+		document.getElementById(drop.name).style.display = "none";
+		drop.closed = true;
+	}
+}
+
+/*var eduClosed = true;
 function eduDrop() {
 if (eduClosed) {
 document.getElementById("drop-edu").style.transform = "rotate(90deg)";
@@ -51,7 +67,7 @@ document.getElementById("drop-skill").style.top = "-38px";
 document.getElementById("skill").style.display = "none";
 skillClosed = true;
 }
-}
+}*/
 </script>
 
 <div class="body">
@@ -62,7 +78,7 @@ skillClosed = true;
 
 <div class="body">
 	<div class="droptop">
-		<button class="drop" onclick=eduDrop()><p id="drop-edu">></p></button>
+		<button class="drop" onclick=dropDown(edu)><p id="drop-edu">></p></button>
 		<div class="droptitle">
 			<p>Education</p>
 		</div>
@@ -88,7 +104,7 @@ skillClosed = true;
 
 <div class="body">
 	<div class="droptop">
-		<button class="drop" onclick=proDrop()><p id="drop-pro">></p></button>
+		<button class="drop" onclick=dropDown(pro)><p id="drop-pro">></p></button>
 		<div class="droptitle">
 			<p>Professional Experience</p>
 		</div>
@@ -145,7 +161,7 @@ skillClosed = true;
 
 <div class="body">
 	<div class="droptop">
-		<button class="drop" onclick=skillDrop()><p id="drop-skill">></p></button>
+		<button class="drop" onclick=dropDown(skill)><p id="drop-skill">></p></button>
 		<div class="droptitle">
 			<p>Skills</p>
 		</div>
