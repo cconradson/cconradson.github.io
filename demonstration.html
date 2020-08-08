@@ -149,15 +149,12 @@ title: Demos
 								},
 								{
 									"data": {"values": pHist},
+									"transform": [{"calculate": "if(datum.season.length == 1, '0' + datum.season, datum.season)", "as": "order"}],
 									"mark": {"type": "line", "stroke": "#000000"},
 									"encoding" : {
-										"x": {
-										"field": "season",
-										"scale": {
-												"domain": seasons
-											},
-										},
-										"y": {"field": "countPlacement", "type": "quantitative"}
+										"x": {"field": "season"},
+										"y": {"field": "countPlacement", "type": "quantitative"},
+										"order": {"field": "order"}
 									}
 								},
 								{
@@ -172,12 +169,7 @@ title: Demos
 										"strokeWidth": "1"
 									},
 									"encoding": {
-										"x": {
-											"field": "season",
-											"scale": {
-												"domain": seasons
-											},
-										},
+										"x": {"field": "season"},
 										"y": {"field": "countPlacement", "type": "quantitative"},
 										"color": {
 											"field": "champ",
