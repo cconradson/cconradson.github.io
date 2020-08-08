@@ -151,7 +151,12 @@ title: Demos
 									"data": {"values": pHist},
 									"mark": {"type": "line", "stroke": "#000000"},
 									"encoding" : {
-										"x": {"field": "season"},
+										"x": {
+										"field": "season".
+										"scale": {
+												"domain": seasons
+											},
+										},
 										"y": {"field": "countPlacement", "type": "quantitative"}
 									}
 								},
@@ -167,7 +172,12 @@ title: Demos
 										"strokeWidth": "1"
 									},
 									"encoding": {
-										"x": {"field": "season"},
+										"x": {
+											"field": "season"
+											"scale": {
+												"domain": seasons
+											},
+										},
 										"y": {"field": "countPlacement", "type": "quantitative"},
 										"color": {
 											"field": "champ",
