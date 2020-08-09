@@ -31,6 +31,43 @@ title: Demos
 				<a href="{{ site.url }}/about/">About</a>
 			</div>
 			
+			<div class="body">
+				<input type="text" id="textmin" value="1" oninput=textinput() onblur=slideinput()>
+				<input type="range" id="slide1" min="1" max="41" value="1" oninput=slideinput()>
+				<input type="range" id="slide2" min="1" max="41" value="41" oninput=slideinput()>
+				<input type="text" id="textmax" value="41" oninput=textinput() onblur=slideinput()>
+				<script>
+					var slide1 = document.getElementById("slide1");
+					var slide2 = document.getElementById("slide2");
+					var textmin = document.getElementById("textmin");
+					var textmax = document.getElementById("textmax");
+					
+					function slideinput() {
+						if (Number(slide1.value) <= Number(slide2.value)) {
+							textmin.value = slide1.value;
+							textmax.value = slide2.value;
+						} else {
+							textmin.value = slide2.value;
+							textmax.value = slide1.value;
+						}
+					}
+					
+					function textinput() {
+						if (textmin.value && textmax.value) {
+							if (Number(textmin.value) > Number(textmax.value)) {
+								; //warning or error statement later
+							} else if (Number(slide1.value) <= Number(slide2.value)) {
+								slide1.value = textmin.value;
+								slide2.value = textmax.value;
+							} else {
+								slide1.value = textmax.value;
+								slide2.value = textmin.value;
+							}
+						}
+					}
+				</script>
+			</div>
+			
 			<div class = "body">
 				<input type="text" id="player-input">
 				<button onclick=changePlayer()>Make Plot</button>
@@ -287,7 +324,7 @@ title: Demos
 						}
 						
 						const spec = {
-							"title": player ? ("League History:" + player) : "League History",
+							"title": player ? ("League History: " + player) : "League History",
 							"height": 600,
 							"width" : 800,
 							"layer": layers				
