@@ -101,6 +101,7 @@ title: Demos
 					
 					document.getElementById('visual').style.padding = 0;
 					makePlot();
+					window.onresize = makePlot;
 					
 					var seasonslide1 = document.getElementById("seasonslide1");
 					var seasonslide2 = document.getElementById("seasonslide2");
@@ -157,7 +158,7 @@ title: Demos
 					
 					function clearPlayer() {
 						player = null;
-						makePlot();
+						if (userSetRange) {makePlot();} else {resetRange();};
 					}
 					
 					function toCount() {
