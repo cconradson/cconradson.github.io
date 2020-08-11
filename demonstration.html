@@ -205,8 +205,9 @@ title: Demos
 						if (player) {
 							//data slicing
 							//isolate records for relevant player
+							let lowerplayer = player.toLowerCase();
 							for (let i = 0; i < placeHistory.length; i++) {
-								if ((placeHistory[i].player.toLowerCase() == player.toLowerCase()) && (Number(placeHistory[i].season) >= seasonRange[0]) && (Number(placeHistory[i].season) <= seasonRange[1])) {
+								if ((placeHistory[i].player.toLowerCase() == lowerplayer) && (Number(placeHistory[i].season) >= seasonRange[0]) && (Number(placeHistory[i].season) <= seasonRange[1])) {
 									pHist.push(placeHistory[i]);
 									seasons.push(placeHistory[i].season);
 									tiers.push(placeHistory[i].tier);
@@ -336,8 +337,10 @@ title: Demos
 									},
 									{
 										"data": {"values": pHist},
-										"transform": [{"calculate": "'http://dominionleague.org/past_standings/season' + datum.season", "as": "standings"}],
-										"selection": {"point": {"type": "single", "on": "mouseover", "empty": "none"}},
+										"selection": {
+											"hovered": {"type": "single", "on": "mouseover", "empty": "none"},
+											"clicked": {"type": "single", "on": "click", "empty": "none"}
+										},
 										"mark": {
 											"type": "point",
 											"filled": true,
@@ -371,8 +374,7 @@ title: Demos
 												},
 												"legend": null
 											},
-											"href": {"field": "standings", "type": "nominal"},
-											"size": {"condition": {"selection": "point", "value": "60"}, "value": "40"},
+											"size": {"condition": {"selection": "hovered", "value": "60"}, "value": "40"},
 											"tooltip": [
 												{"field": "season", "type": "nominal", "title": "Season"},
 												{"field": "division", "type": "nominal", "title": "Division"},
@@ -396,7 +398,15 @@ title: Demos
 							"height": 0.6 * (document.getElementById('widthcheck').clientWidth - 94),
 							"layer": layers				
 						};
-						vegaEmbed("#visual", spec, {"actions": false}).then(function(res) {plot = res.view;});
+						vegaEmbed("#visual", spec, {"actions": false}).then(function(res) {
+							plot = res.view;
+							if (player) {
+								plot.addDataListener('clicked_store', function(name, value){
+									let roi = pHist[value[0].values[0] - fCounts.length - 1];
+									showStandingsModal(roi.season, roi.division);
+								})
+							}
+						});
 					}
 					
 					function nullPlotLayer() {
@@ -450,6 +460,10 @@ title: Demos
 								"order": {"field":"tier", "sort":"ascending"}
 							}
 						}];
+					}
+					
+					function showStandingsModal(season, division) {
+						window.alert("I haven't actually made the modals yet but it would show standings for season " + season + ", division " + division)
 					}
 					</script>
 				</div>
