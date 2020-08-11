@@ -14,6 +14,48 @@ title: Demos
 		<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+		<style>
+		.doubleslider-container {
+			float: left;
+			position: relative;
+			width: 50%;
+			height: 22px;
+		}
+		
+		.dslider {
+			position: absolute;
+			-webkit-appearance: none;
+			appearance: none;
+			width: 100%;
+		}
+		
+		.dslider::-webkit-slider-thumb {
+			position: relative;
+			z-index: 20;
+		}
+		
+		.dslider::-moz-range-thumb {
+			position: relative;
+			z-index: 20;
+		}
+		
+		.slidertext {
+			float: left;
+			width: 18px;
+			margin-left: 4px;
+		}
+		
+		.reset {
+			float: left;
+			margin-left: 5px;
+		}
+		
+		.slidewrap:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+		</style>
 	</head>
 	
 	<body>
@@ -31,45 +73,8 @@ title: Demos
 				<a href="{{ site.url }}/about/">About</a>
 			</div>
 			
-			<div class="body">
-				<div class="doubleslider-container">
-					<input type="text" id="textmin" class="slidertext" value="1" oninput=textinput() onblur=slideinput()>
-					<input type="range" id="slide1" class="dslider1" min="1" max="41" value="1" oninput=slideinput()>
-					<input type="range" id="slide2" class="dslider2" min="1" max="41" value="41" oninput=slideinput()>
-					<input type="text" id="textmax" class="slidertext" value="41" oninput=textinput() onblur=slideinput()>
-					<script>
-						var slide1 = document.getElementById("slide1");
-						var slide2 = document.getElementById("slide2");
-						var textmin = document.getElementById("textmin");
-						var textmax = document.getElementById("textmax");
-						
-						function slideinput() {
-							if (Number(slide1.value) <= Number(slide2.value)) {
-								textmin.value = slide1.value;
-								textmax.value = slide2.value;
-							} else {
-								textmin.value = slide2.value;
-								textmax.value = slide1.value;
-							}
-						}
-						
-						function textinput() {
-							if (Number(textmin.value) <= Number(textmax.value)) {
-								if (Number(slide1.value) <= Number(slide2.value)) {
-									slide1.value = textmin.value;
-									slide2.value = textmax.value;
-								} else {
-									slide1.value = textmax.value;
-									slide2.value = textmin.value;
-								}
-							}
-						}
-					</script>
-				</div>
-				
-			</div>
-			
 			<div class = "body">
+				Player: 
 				<input type="text" id="player-input">
 				<button onclick=changePlayer()>Make Plot</button>
 				<button onclick=clearPlayer()>Clear</button>
@@ -80,12 +85,15 @@ title: Demos
 				<input id="allTiers" type="checkbox" onclick=changeAllTiers()>
 				<label for="allTiers">Show all tiers</label>
 				
-				<div class="doubleslider-container">
+				<div class="slidewrap">
+					<p style="float:left;padding:0;margin:0">Seasons:</p>
 					<input type="text" id="seasontextmin" class="slidertext" value="1" oninput=textinput() onblur=slideinput()>
-					<input type="range" id="seasonslide1" class="dslider1" min="1" max="41" value="1" oninput=slideinput()>
-					<input type="range" id="seasonslide2" class="dslider2" min="1" max="41" value="41" oninput=slideinput()>
+					<div class="doubleslider-container">
+						<input type="range" id="seasonslide1" class="dslider" min="1" max="41" value="1" oninput=slideinput()>
+						<input type="range" id="seasonslide2" class="dslider" min="1" max="41" value="41" oninput=slideinput()>
+					</div>
 					<input type="text" id="seasontextmax" class="slidertext" value="41" oninput=textinput() onblur=slideinput()>
-					<button onclick=resetRange()>Reset Range</button> 
+					<button class="reset" onclick=resetRange()>Reset Range</button> 
 				</div>
 				
 				<div id="widthcheck"></div>
@@ -98,10 +106,16 @@ title: Demos
 					var player = null;
 					var seasonRange = [1,41];
 					var userSetRange = false;
+					var plot = null;
 					
 					document.getElementById('visual').style.padding = 0;
 					makePlot();
-					window.onresize = makePlot;
+					window.onresize = function () {
+						plot.width(document.getElementById('widthcheck').clientWidth - 94);
+						plot.height(0.6 * document.getElementById('widthcheck').clientWidth - 94);
+						plot.runAsync();
+					};
+					
 					
 					var seasonslide1 = document.getElementById("seasonslide1");
 					var seasonslide2 = document.getElementById("seasonslide2");
@@ -253,7 +267,7 @@ title: Demos
 								if (tiers[tiers.length - 1] == "E") {
 									let oldOnly = true;
 									for (let i = pHist.length - 1; i >= 0; i--) {
-										if (pHist[i].tier == "E") {
+										if (pHist[i].tier == "E" && Number(pHist[i].season > 26)) {
 											oldOnly = false;
 											break;
 										}
@@ -382,7 +396,7 @@ title: Demos
 							"height": 0.6 * (document.getElementById('widthcheck').clientWidth - 94),
 							"layer": layers				
 						};
-						vegaEmbed("#visual", spec, {"actions": false});
+						vegaEmbed("#visual", spec, {"actions": false}).then(function(res) {plot = res.view;});
 					}
 					
 					function nullPlotLayer() {
