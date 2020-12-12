@@ -4,24 +4,6 @@ permalink: /about/
 title: About
 ---
 
-<script>
-var edu = {"name": "edu", "closed": true}
-var pro = {"name": "pro", "closed": true}
-var skill = {"name": "skill", "closed": true}
-
-function dropDown(drop) {
-	if (drop.closed) {
-		document.getElementById("drop-" + drop.name).style.transform = "rotate(90deg)";
-		document.getElementById(drop.name).style.display = "block";
-		drop.closed = false;
-	} else {
-		document.getElementById("drop-" + drop.name).style.transform = "rotate(0deg)";
-		document.getElementById(drop.name).style.display = "none";
-		drop.closed = true;
-	}
-}
-</script>
-
 <div class="body">
 	<p style="font-weight:bold">Data Analyst</p>
 	<p>I am currently enrolled as a Master's student at Penn State and am open to internships as well as part- and full-time positions.</p>
@@ -30,7 +12,7 @@ function dropDown(drop) {
 
 <div class="body">
 	<div class="droptop">
-		<button class="drop" onclick=dropDown(edu)><p id="drop-edu">></p></button>
+		<button class="drop"><p id="drop-edu">></p></button>
 		<div class="droptitle">
 			<p>Education</p>
 		</div>
@@ -70,7 +52,7 @@ function dropDown(drop) {
 
 <div class="body">
 	<div class="droptop">
-		<button class="drop" onclick=dropDown(pro)><p id="drop-pro">></p></button>
+		<button class="drop"><p id="drop-pro">></p></button>
 		<div class="droptitle">
 			<p>Professional Experience</p>
 		</div>
@@ -127,7 +109,7 @@ function dropDown(drop) {
 
 <div class="body">
 	<div class="droptop">
-		<button class="drop" onclick=dropDown(skill)><p id="drop-skill">></p></button>
+		<button class="drop"><p id="drop-skill">></p></button>
 		<div class="droptitle">
 			<p>Skills</p>
 		</div>
@@ -144,3 +126,18 @@ function dropDown(drop) {
 		</ul>
 	</div>
 </div>
+
+<script>
+var drops = document.getElementsByClassName('drop');
+for (let i = drops.length-1; i>=0; i--) {
+	drops[i].onclick = function() {
+		if (drops[i].firstChild.style.transform == "rotate(90deg)") {
+			drops[i].firstChild.style.transform = "rotate(0deg)";
+			drops[i].parentNode.parentNode.childNodes[3].style.display = "none";
+		} else {
+			drops[i].firstChild.style.transform = "rotate(90deg)";
+			drops[i].parentNode.parentNode.childNodes[3].style.display = "block";
+		}
+	}
+}
+</script>
