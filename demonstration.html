@@ -80,7 +80,10 @@ title: Demos
 								
 				<script type="text/javascript">
 					var mods = {{ site.data.mods | jsonify }};
-					var currentEnd = Math.max(...mods.map(x => Number(x.end)))
+					var currentEnd = "45";
+					for (let i = mods.length-1; i >= 0; i--) {
+						if (!mods[i].end) {mods[i].end = currentEnd}
+					}
 					var widthcheck = document.getElementById("widthcheck");
 					
 					const plotSpec = {
@@ -89,7 +92,8 @@ title: Demos
 						"width": widthcheck.clientWidth - 117,
 						"data": {"values": mods},
 						"transform": [
-							{"calculate":"datum.start*1", "as":"order"}
+							{"calculate":"datum.start*1", "as":"order"},
+							{"calculate":"(datum.current == 'admin') ? 'admin' : 'no'", "as": "admin"}
 						],
 						"layer": [
 							{
