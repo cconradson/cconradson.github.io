@@ -74,66 +74,107 @@ title: Demos
 			</div>
 			
 			<div class = "body">
-				
+				Start: 
+				<input type="text" id="start" value="1">
+				End: 
+				<input type="text" id="end" value="44">
+				Seasons out: 
+				<input type="text" id="seasons" value="all">
+				Start tier:
+				<input type="text" id="startTier" value="all">
+				Exact: 
+				<input type="checkbox" id="exact">
+				<button id="Calculate">Go</button>
 				<div id="widthcheck"><!-- I need this for determining render width --></div>
 				<div id="visual"></div>
 								
 				<script type="text/javascript">
-					var mods = {{ site.data.mods | jsonify }};
-					var currentEnd = "45";
-					for (let i = mods.length-1; i >= 0; i--) {
-						if (!mods[i].end) {mods[i].end = currentEnd}
-					}
-					var widthcheck = document.getElementById("widthcheck");
+					var promotions = {{ site.data.chart_promotions | jsonify }};
+					var schemesLength = promotions.schemes.length;
+					var currentSeason = promotions.tiers.length;
+					var seasonRange = [1, currentSeason];
+					var seasonsOut = "all";
+					var startTier = "all";	
+					var exact = false;									
 					
-					const plotSpec = {
-						"title": "Moderators",
-						"height": 600,
-						"width": widthcheck.clientWidth - 117,
-						"data": {"values": mods},
-						"transform": [
-							{"calculate":"datum.start*1", "as":"order"},
-							{"calculate":"(datum.current == 'admin') ? 'admin' : 'no'", "as": "admin"}
-						],
-						"layer": [
-							{
-								"mark": "bar",
-								"encoding": {
-									"y": {
-										"field": "Mod",
-										"type": "nominal",
-										"sort": {"field":"order"},
-										"axis": {"title": null, "orient": "right"}
-									},
-									"x": {
-										"field": "start",
-										"type": "quantitative",
-										"axis": {"title": "Season"}
-									},
-									"x2": {"field": "end"},
-									"color": {
-										"field": "current",
-										"legend": null,
-										"scale": {
-											"domain": ["no", "current", "admin"],
-											"range": ["#4e5ab5", "#3c783d", "#e0d043"]
+					findProps();
+					
+					document.getElementById("Calculate").onclick = function() {
+						seasonRange = [Number(document.getElementById("start").value), Number(document.getElementById("end").value)];
+						seasonsOut = document.getElementById("seasons").value;
+						if (!(seasonsOut == "all")) {seasonsOut = Number(seasonsOut);}
+						startTier = document.getElementById("startTier").value;
+						exact = document.getElementById("exact").checked;
+						findProps()
+					};
+
+					function findProps() {
+						var allFuture = (seasonsOut == "all");
+						var allTiers = (startTier == "all");
+						var tiers = allFuture ? ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"] : [...new Set(promotions.tiers.slice(seasonRange[0] - 1 + (exact ? seasonsOut : 1), seasonRange[1] + seasonsOut - 1).join(""))];
+						var props = {};
+						for (let j=0; j<tiers.length; j++) {
+							props[tiers[j]] = {"tier": tiers[j], "count": 0};
+						}
+						if (exact) {
+							tiers.push("-");
+							props["-"] = {"tier": "Out", "count": 0};
+						}
+						var total = 0;
+						
+						var start = new RegExp("^" + (allTiers ? "[^-]" : startTier));
+						var totadd = [];
+						var countadd = [];
+						for (let i=0; i<schemesLength; i++) {
+							if (allFuture) {
+								total += regExpChecker(start, promotions.schemes[i], seasonRange[0]-1, seasonRange[1]);
+							} else {
+								total += regExpCounter(start, promotions.schemes[i], seasonRange[0]-1, seasonRange[1]);
+							}
+							for (let j=0; j<tiers.length; j++) {
+								if (allFuture) {
+									let reg = new RegExp("^" + (allTiers ? "[^-]" : startTier) + ".*" + tiers[j] + (exact ? "$" : ""));
+									if (regExpChecker(reg, promotions.schemes[i], seasonRange[0]-1, seasonRange[1])) {
+										props[tiers[j]].count += 1;
+									} else if (allTiers) {
+										if (!exact) {
+											reg = new RegExp("^" + tiers[j]);
+											props[tiers[j]].count += regExpChecker(reg, promotions.schemes[i], seasonRange[0]-1, seasonRange[1]);
+										} else if (seasonRange[1] == currentSeason) {
+											reg = new RegExp(tiers[j] + "$");
+											props[tiers[j]].count += regExpChecker(reg, promotions.schemes[i], seasonRange[0]-1, seasonRange[1]);
 										}
-									},
-									"size": {
-										"field": "admin",
-										"legend": null,
-										"scale": {
-											"domain": ["no", "admin"],
-											"range": ["15", "5"]
-										}
-									},
-									"tooltip": {"field": "Mod"}
+									}	
+								} else {
+									let reg = new RegExp("^" + (allTiers ? "[^-]" : startTier) + ".{" + (exact ? "" : "0,") + (seasonsOut-1) + "}" + tiers[j]);
+									props[tiers[j]].count += regExpCounter(reg, promotions.schemes[i], seasonRange[0]-1, seasonRange[1]);
 								}
 							}
-						]
-					};
-					
-					vegaEmbed("#visual", plotSpec, {"actions": false})
+						}
+						props = Object.keys(props).map(key => props[key]);
+						for (let i=0; i<props.length; i++) {
+							props[i].prop = props[i].count/total;
+						}
+						document.getElementById("visual").innerHTML = JSON.stringify(props);
+						
+						function regExpCounter(regex, string, start, end) {
+							let count = 0;
+							for (let i=start; i<end; i++) {
+								let k = string.slice(i);
+								count += regex.test(k);
+							}
+							return count;
+						}
+						
+						function regExpChecker(regex, string, start, end) {
+							for (let i=start; i<end; i++) {
+								if (regex.test(string.slice(i))) {
+									return true;
+								}
+							}
+							return false;
+						}
+					}
 				</script>
 			</div>
 		
