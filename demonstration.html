@@ -116,8 +116,8 @@ title: Demos
 
 					function findProps() {
 						var allTiers = (startTier == "all");
-						var tiers = offset ? [...new Set(transitions.tiers.slice(seasonRange[0] - 1 + (exact ? seasons : 1), seasonRange[1] + seasons).join(""))] : 
-							(exact ? transitions.tiers[seasons-1].split('') : 
+						var tiers = offset ? [...new Set(transitions.tiers.slice(seasonRange[0] - 1 + ((exact || (seasons < 0)) ? seasons : 1), seasonRange[1] + (((seasons < 0) && !exact) ? 0 : seasons)).join(""))] : 
+						(exact ? transitions.tiers[seasons-1].split('') : 
 							[...new Set(transitions.tiers.slice(seasonRange[0]-1,seasonRange[1]).join("") + transitions.tiers.slice(seasons-1,seasonRange[1]).join("") + transitions.tiers.slice(seasonRange[0]-1,seasons).join(""))]);
 						
 						props = {};
