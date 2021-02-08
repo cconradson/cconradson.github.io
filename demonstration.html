@@ -84,6 +84,8 @@ title: Demos
 				<input type="checkbox" id="exact">
 				Offset:
 				<input type="checkbox" id="offset">
+				First:
+				<input type="checkbox" id="first">
 				Season/Offset: 
 				<input type="text" id="seasons" value="44">
 				<button id="Calculate">Go</button>
@@ -101,6 +103,7 @@ title: Demos
 					var startTier = "all";
 					var exact = false;
 					var offset = false;
+					var first = false;
 					var transitionsPlot = null;
 					
 					findProps();
@@ -111,6 +114,7 @@ title: Demos
 						startTier = document.getElementById("startTier").value;
 						exact = document.getElementById("exact").checked;
 						offset = document.getElementById("offset").checked;
+						first = document.getElementById("first").checked;
 						findProps()
 					};
 
@@ -133,42 +137,83 @@ title: Demos
 						
 						var total = 0;
 						
-						if (offset) {
-							let plus = (seasons > 0);
-							let diff = plus ? seasons : -seasons;
+						if (first) {
 							for (let i=0; i<schemesLength; i++) {
-								let nPossible = regExpCounter(allTiers ? "[^-]" : startTier, transitions.schemes[i], seasonRange[0]-1, seasonRange[1], true);
-								if (nPossible) {
-									total += nPossible;
-									for (let j=tiers.length-1; j>=0; j--) {
-										let reg = (plus ? (allTiers ? "[^-]" : startTier) : tiers[j]) + ".{" + (exact ? "" : "0,") + (diff-1) + "}" + (plus ? tiers[j] : (allTiers ? "[^-]" : startTier));
-										let nMatches = regExpCounter(reg, transitions.schemes[i], seasonRange[0]-1, seasonRange[1], plus);
-										if (nMatches) {
-											props[tiers[j]].count += nMatches;
-											props[tiers[j]].ids.push(i);
+								let reg = new RegExp(allTiers ? "[^-]" : startTier);
+								let info = reg.exec(transitions.schemes[i]);
+								if (info && (info.index + 1 >= seasonRange[0]) && (info.index +1 <= seasonRange[1])) {
+									total += 1;
+									if (offset) {
+										for (let j=tiers.length-1; j>=0; j--) {
+											if (exact) {
+												if (transitions.schemes[i][info.index + seasons] == tiers[j]) {
+													props[tiers[j]].count += 1;
+													props[tiers[j]].ids.push(i);
+												}
+											} else {
+												let plus = (seasons > 0);
+												if (transitions.schemes[i].slice((plus ? info.index + 1 : info.index + seasons), (plus ? info.index + seasons + 1 : info.index)).includes(tiers[j])) {
+													props[tiers[j]].count += 1;
+													props[tiers[j]].ids.push(i);
+												}
+											}
+										}
+									} else {
+										for (let j=tiers.length-1; j>=0; j--) {
+											if (exact) {
+												if (transitions.schemes[i][seasons - 1] == tiers[j]) {
+													props[tiers[j]].count += 1;
+													props[tiers[j]].ids.push(i);
+												}
+											} else {
+												let plus = (seasons > info.index);
+												if (transitions.schemes[i].slice((plus ? info.index + 1 : seasons - 1), (plus ? seasons : info.index)).includes(tiers[j])) {
+													props[tiers[j]].count += 1;
+													props[tiers[j]].ids.push(i);
+												}
+											}
 										}
 									}
 								}
 							}
 						} else {
-							for (let i=0; i<schemesLength; i++) {
-								if (regExpChecker(allTiers ? "[^-]" : startTier, transitions.schemes[i], seasonRange[0]-1, seasonRange[1], true)) {
-									total += 1;
-									for (let j=tiers.length-1; j>=0; j--) {
-										if (exact) {
-											if (transitions.schemes[i][seasons-1] == tiers[j]) {
-												props[tiers[j]].count += 1;
-												props[tiers[j]].ids.push(i);
+							if (offset) {
+								let plus = (seasons > 0);
+								let diff = plus ? seasons : -seasons;
+									for (let i=0; i<schemesLength; i++) {
+										let nPossible = regExpCounter(allTiers ? "[^-]" : startTier, transitions.schemes[i], seasonRange[0]-1, seasonRange[1], true);
+										if (nPossible) {
+											total += nPossible;
+											for (let j=tiers.length-1; j>=0; j--) {
+												let reg = (plus ? (allTiers ? "[^-]" : startTier) : tiers[j]) + ".{" + (exact ? "" : "0,") + (diff-1) + "}" + (plus ? tiers[j] : (allTiers ? "[^-]" : startTier));
+												let nMatches = regExpCounter(reg, transitions.schemes[i], seasonRange[0]-1, seasonRange[1], plus);
+												if (nMatches) {
+													props[tiers[j]].count += nMatches;
+													props[tiers[j]].ids.push(i);
+												}
 											}
-										} else if (seasons < seasonRange[0]) {
-											if (regExpChecker(tiers[j], transitions.schemes[i], seasons-1, seasonRange[1], true)) {
-												props[tiers[j]].count += 1;
-												props[tiers[j]].ids.push(i);
-											}
-										} else {
-											if (regExpChecker(tiers[j], transitions.schemes[i], seasonRange[0]-1, seasons, false)) {
-												props[tiers[j]].count += 1;
-												props[tiers[j]].ids.push(i);
+										}
+									}
+							} else {
+								for (let i=0; i<schemesLength; i++) {
+									if (regExpChecker(allTiers ? "[^-]" : startTier, transitions.schemes[i], seasonRange[0]-1, seasonRange[1], true)) {
+										total += 1;
+										for (let j=tiers.length-1; j>=0; j--) {
+											if (exact) {
+												if (transitions.schemes[i][seasons-1] == tiers[j]) {
+													props[tiers[j]].count += 1;
+													props[tiers[j]].ids.push(i);
+												}
+											} else if (seasons < seasonRange[0]) {
+												if (regExpChecker(tiers[j], transitions.schemes[i], seasons-1, seasonRange[1], true)) {
+													props[tiers[j]].count += 1;
+													props[tiers[j]].ids.push(i);
+												}
+											} else {
+												if (regExpChecker(tiers[j], transitions.schemes[i], seasonRange[0]-1, seasons, false)) {
+													props[tiers[j]].count += 1;
+													props[tiers[j]].ids.push(i);
+												}
 											}
 										}
 									}
