@@ -167,7 +167,7 @@ title: Demos
 												}
 											} else {
 												let plus = (seasons > info.index);
-												if (transitions.schemes[i].slice((plus ? info.index + 1 : seasons - 1), (plus ? seasons : info.index)).includes(tiers[j])) {
+												if (transitions.schemes[i].slice((plus ? info.index : seasons - 1), (plus ? seasons : info.index + 1)).includes(tiers[j])) {
 													props[tiers[j]].count += 1;
 													props[tiers[j]].ids.push(i);
 												}
@@ -243,7 +243,8 @@ title: Demos
 									}
 								},
 								"tooltip": [{"field": "count", "type": "quantitative", "title": "Players"}]
-							}
+							},
+							"config": {"axisX": {"labelAngle": 0}}
 						}
 						
 						vegaEmbed("#visual", plotSpec, {"actions": false}).then(function(res) {
