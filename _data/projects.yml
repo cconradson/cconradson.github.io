@@ -1,0 +1,59 @@
+- name: CFB Data Scraping
+  date: March 2020
+  detail:
+    code:
+      name: Private
+  description: Scrape college football game, team, and polling data for seasons since 2000 from [College Football Reference](https://www.sports-reference.com/cfb/) and write it into a local database for future project use.
+  technical: Python library BeautifulSoup used for scraping the game data and exporting. Local MySQL database used, with SQL used to insert records.
+
+- name: Personal Website
+  date: June 2020
+  maintenance: true
+  detail:
+    product:
+      name: Homepage
+      link: https://cconradson.github.io/
+    code:
+      name: Github Repository
+      link: https://github.com/cconradson/cconradson.github.io
+  description: Create a website to display projects, interests, and more about me. In the process, learn HTML, CSS, and basic JavaScript.
+  technical: The website is static, powered by Jekyll via Github pages. Most of the website is purely HTML and CSS, with JavaScript used for rendering from data (here) and for minor interactivity on the About page.
+
+- name: Dominion League Charts
+  date: July, August, October 2020
+  detail:
+    product:
+      name: Charts Page
+      link: https://dominionleague.org/charts
+    code:
+      name: JavaScript Source
+      link: https://dominionleague.org/js/charts.js
+  description: Create visuals showing the history of the Dominion League, both as a whole and for individual players. Allow interaction with the visualizations through outside controls and selections within the visualizations.
+  technical: The JavaScript library Vega-Lite is used to create and display the visualizations. Controls and page use HTML and CSS for display and styling and JavaScript for functionality.
+
+- name: Tournament Building
+  date: August, September, November 2020, January, July, August, September 2021
+  detail:
+    product:
+      name: User Guide
+      link: https://domi.link/tournament-building
+    code:
+      name: Github Repository
+      link: https://github.com/tracerdominion/Tournament_Building
+  description: Allow people with minimal technical knowledge to set up and run complex tournaments with a Google Sheets and Forms front end. Features include setup for 6 different types of tournament stage, automated results processing from an online form, ability to have results sent to an external service (mainly Discord), and some tools for maintaining active tournaments.
+  technical: The system is written entirely in Google Apps Script (JavaScript) with spreadsheet interface. The scripts place some spreadsheet functions for results processing.
+
+- name: League Website Management
+  date: February, March, April 2021
+  maintenance: true
+  detail:
+    product:
+      name: Website Homepage
+      link: https://dominionleague.org/
+    code:
+      name: Private
+    additional: My work is mostly on the Standings pages.
+  description: Make the Current Standings page automatically update with results. Add methods for updating data files at end of season. Make Past Standings pages formatted like the Current Standings page. Make the Player Database standings formatted like the Current Standings page, and add player statistics and records by opponent to the displays for each player. Create the Hall of Fame page.
+  technical: The website is static, powered by Jekyll via Github pages. For automatic updating, the Github API is used to commit data updates from Google Apps Script (JavaScript) since results are submitted by Google Form. For end of season updates, node.js is used to process JSON files. The web pages use base JavaScript with HTML and CSS for display and styling.
+
+

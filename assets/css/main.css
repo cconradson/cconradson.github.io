@@ -176,20 +176,6 @@ ul.blank {
 	list-style-type: none;
 }
 
-table {
-	border-collapse: collapse;
-	width: 100%;
-}
-
-td {
-	vertical-align: top;
-	padding: 6px;
-}
-
-tr:nth-child(even) {
-	background-color: #fffae0;
-}
-
 /* for image links with text on top */
 
 a.img {
@@ -276,4 +262,33 @@ button.drop:hover {
 .dropdown {
 	display: none;
 	padding: 5px;
+}
+
+/* projects list */
+
+.divlist > div {
+	padding: 20px;
+}
+
+.divlist > div:nth-child(4n+3) {
+	background-color: #fffae0;
+}
+
+.divlist > hr {
+	padding: 0px;
+	margin: 0px;
+}
+
+.project-header {
+	font-size: 24px;
+	font-weight: bold;
+	margin-top: 0px;
+}
+
+.project-opener {
+	font-weight: bold;
+}
+
+.project-special {
+	font-style: italic;
 }
