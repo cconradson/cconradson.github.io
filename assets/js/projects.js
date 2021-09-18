@@ -30,7 +30,14 @@ for (pro of projects) {
 		detail.appendChild(prodintro);
 		let prod = document.createElement('a');
 		prod.href = pro.detail.product.link;
-		prod.appendChild(document.createTextNode(pro.detail.product.name));
+		if (pro.detail.product.link.includes("/assets/download/")) {
+			prod.setAttribute('download', "");
+			prod.appendChild(document.createTextNode(pro.detail.product.name + " (Download)"));
+		} else {
+			prod.target = "_blank";
+			prod.appendChild(document.createTextNode(pro.detail.product.name));
+		}
+		
 		detail.appendChild(prod);
 	}
 	if (pro.detail.code) {
@@ -42,7 +49,13 @@ for (pro of projects) {
 		if (pro.detail.code.link) {
 			var code = document.createElement('a');
 			code.href = pro.detail.code.link;
-			code.appendChild(document.createTextNode(pro.detail.code.name));
+			if (pro.detail.code.link.includes("/assets/download/")) {
+				code.setAttribute('download', "");
+				code.appendChild(document.createTextNode(pro.detail.code.name + " (Download)"));
+			} else {
+				code.target = "_blank";
+				code.appendChild(document.createTextNode(pro.detail.code.name));
+			}
 		} else {
 			var code = document.createElement('span');
 			code.classList.add('project-special');
@@ -84,6 +97,7 @@ function parseMD(el, text, forwardText = null) {
 	for (let i=1; i<nparts; i++) {
 		let ael = document.createElement('a');
 		ael.href = links[i-1][0].match(/\((.+)\)/)[1]
+		ael.target = "_blank";
 		ael.appendChild(document.createTextNode(links[i-1][0].match(/\[(.+)\]/)[1]));
 		toAdd.appendChild(ael);
 		toAdd.appendChild(document.createTextNode(parts[i]));

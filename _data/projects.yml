@@ -56,4 +56,15 @@
   description: Make the Current Standings page automatically update with results. Add methods for updating data files at end of season. Make Past Standings pages formatted like the Current Standings page. Make the Player Database standings formatted like the Current Standings page, and add player statistics and records by opponent to the displays for each player. Create the Hall of Fame page.
   technical: The website is static, powered by Jekyll via Github pages. For automatic updating, the Github API is used to commit data updates from Google Apps Script (JavaScript) since results are submitted by Google Form. For end of season updates, node.js is used to process JSON files. The web pages use base JavaScript with HTML and CSS for display and styling.
 
-
+- name: College Football Offenses Dashboard
+  date: August 2021
+  detail:
+    product:
+      name: Demonstration Video
+      link: https://youtu.be/07Jr4KuokPY
+    code:
+      name: Packaged Tableau Workbook
+      link: /assets/download/CFB-Offenses-Dashboard.twbx
+    additional: This was for a class project.
+  description: "Create an interactive exploratory dashboard. I chose to allow users to explore offenses in college football since 2014, with the following abilities: compare stylistic differences between conferences and teams over time, and get an idea for what seems to be most effective, both by the results of the plays themselves and in terms of winning games."
+  technical: The dashboard was created in Tableau.
